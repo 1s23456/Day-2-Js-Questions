@@ -276,18 +276,126 @@
 
 //Promise Chaining:-
 
-function display(num,timeout){
-      return new Promise((res,rej)=>{
-            setTimeout(() => {
-                  console.log(num);
-                  res("Promise resolved!!")
-            }, timeout);
-      })
+// function display(num,timeout){
+//       return new Promise((res,rej)=>{
+//             setTimeout(() => {
+//                   console.log(num);
+//                   res("Promise resolved!!")
+//             }, timeout);
+//       })
+// }
+
+// display(1,1000)
+// .then(()=>display(2,2000))
+// .then(()=>display(3,3000))
+// .then(()=>display(4,4000))
+// .then(()=>display(5,5000))
+// .then((data)=>console.log("Promise completed.."))
+
+
+
+//Dom:
+//Id and query selector are same because both return unique value.
+
+//addeventlistener - has two parameters(event,callback function)
+
+//Closures:
+
+// function outer(){
+//               let a=10
+//               function inner(){
+//                             console.log("Hello",a)
+//               }
+//          inner()
+// }
+// outer();
+
+
+
+//Callback fnt:
+
+// function Sum(A,B){
+//      return A+B;
+// }
+
+// function Display(name,age){
+//      console.log(`${name},${age}`);
+// }
+
+// Display("SHikha",Sum(10,14))
+
+
+
+//Function Constructor: this keyword refer to current object..
+
+// function Person(name,age,course){
+//      this.Name = name;
+//      this.Age =age;
+//      this.Course = course;
+// }
+
+
+// const people1 = new Person("Shikha",24,"MERN");
+// const people2 = new Person("Nishu",24,"MOCK");
+// people2.add="Delhi";
+// Person.prototype.Location="Patna"
+// console.log(people1);
+// console.log(people2.Location);
+
+
+
+//async / await:
+
+// async function func1(){
+//      const api = await fetch('https://api.github.com/users')
+//      console.log(api);
+// }
+
+// func1();
+
+
+
+
+// function mypromise(alpha,timeout){
+//      return new Promise((resolve,reject)=>{
+//   console.log(alpha);
+//   resolve("Promise resolved")
+//      },timeout)
+// }
+
+// async function call(){
+//      // await mypromise(1,1000)
+//      // await mypromise(2,2000)
+//      // await mypromise(3,3000)
+//      // await mypromise(4,4000)
+//      mypromise("A",1000)
+//      .then(()=>mypromise("E",5000))
+//      .then(()=>mypromise("I",3000))
+// }
+// call()
+
+
+
+//Give an example of inheritance using function constructor:
+
+//Constructor
+function Animal(name){
+     this.Name = name
+}
+Animal.prototype.sayHello = function(){
+     console.log('${this.Name}');
 }
 
-display(1,1000)
-.then(()=>display(2,2000))
-.then(()=>display(3,3000))
-.then(()=>display(4,4000))
-.then(()=>display(5,5000))
-.then((data)=>console.log("Promise completed.."))
+let dog = Object.create(Animal);
+dog.prototype.bark = function(){
+     console.log("Bark...!!!");
+}
+
+//BY using new keyword,we create instance..
+
+let animal1 = new Animal ('cat')
+animal1.sayHello();
+
+// dog.sayHello();
+
+// dog.bark() 
